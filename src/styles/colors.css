@@ -1,0 +1,66 @@
+:root {
+  /* Primary Colors */
+  --color-primary-blue: #3b82f6;
+  --color-primary-purple: #9333ea;
+
+  /* Accent Colors */
+  --color-accent-cyan: #22d3ee;
+  --color-accent-indigo: #4f46e5;
+
+  /* Background Colors */
+  --color-background-light: #ffffff;
+  --color-background-dark: #000000;
+  --color-background-gradient-1: #f3f4f6;
+  --color-background-gradient-2: #e5e7eb;
+
+  /* Text Colors */
+  --color-text-primary-light: #111827;
+  --color-text-primary-dark: #f9fafb;
+  --color-text-secondary-light: #4b5563;
+  --color-text-secondary-dark: #9ca3af;
+
+  /* Special Effects */
+  --color-gradient-blue-purple: linear-gradient(135deg, var(--color-primary-blue), var(--color-primary-purple));
+  --color-gradient-background: linear-gradient(to bottom, var(--color-background-gradient-1), var(--color-background-gradient-2));
+
+  /* Hover States */
+  --color-hover-blue: #2563eb;
+  --color-hover-purple: #7c3aed;
+
+  /* Button Colors */
+  --color-button-primary: var(--color-accent-indigo);
+  --color-button-hover: #4338ca;
+
+  /* Border Colors */
+  --color-border-light: #e5e7eb;
+  --color-border-dark: #374151;
+}
+
+/* Dark mode overrides */
+[data-theme="dark"] {
+  --color-background: var(--color-background-dark);
+  --color-text-primary: var(--color-text-primary-dark);
+  --color-text-secondary: var(--color-text-secondary-dark);
+  --color-border: var(--color-border-dark);
+}
+
+/* Example utility classes */
+.text-gradient {
+  background: var(--color-gradient-blue-purple);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-gradient {
+  background: var(--color-gradient-blue-purple);
+}
+
+.button-primary {
+  background: var(--color-button-primary);
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.button-primary:hover {
+  background: var(--color-button-hover);
+}

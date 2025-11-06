@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import LoadingScreen from "@/components/LoadingScreen";
+import Navbar from "@/components/Navbar";
+import FullPageScroll from "@/components/FullPageScroll";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,10 +27,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased scroll-smooth overflow-x-hidden`}>
+        <div className="min-h-screen flex flex-col">
+          <Navbar />
+          <main className="flex-1 overflow-y-auto snap-y snap-mandatory">
+            <LoadingScreen duration={3000}>{children}</LoadingScreen>
+          </main>
+        </div>
       </body>
     </html>
   );
