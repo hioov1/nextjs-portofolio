@@ -5,9 +5,15 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { Spotlight } from "@/components/ui/spotlight";
 import { Button } from "@/components/ui/moving-border";
+import { LogoLoop } from "@/components/LogoLoop";
+import { FaReact, FaNodeJs, FaDocker, FaAws, FaFigma, FaLaravel, FaJs } from "react-icons/fa";
+import { SiNextdotjs, SiTypescript, SiTailwindcss, SiMongodb, SiPostgresql } from "react-icons/si";
+
 import { ResizableNavbar } from "@/components/ui/resizable-navbar";
 import { Timeline } from "@/components/ui/timeline";
 import { FlipCard } from "@/components/ui/flip-card";
+import { EncryptedText } from "@/components/ui/encrypted-text";
+import DecryptedText from "@/components/DecryptedText";
 import { IconBrandGithub, IconBrandLinkedin, IconBrandTwitter, IconMail, IconBrandInstagram, IconBrandFacebook } from "@tabler/icons-react";
 import { LinkPreview } from "@/components/ui/link-priview";
 import {
@@ -169,6 +175,69 @@ export default function AboutDetailPage() {
     },
   ];
 
+  const logos = [
+    {
+      node: <FaReact className="text-blue-400 text-5xl hover:text-blue-300 transition-colors" />,
+      title: "React",
+      ariaLabel: "React",
+    },
+    {
+      node: <SiNextdotjs className="text-white text-5xl hover:text-gray-300 transition-colors" />,
+      title: "Next.js",
+      ariaLabel: "Next.js",
+    },
+    {
+      node: <SiTypescript className="text-blue-500 text-5xl hover:text-blue-400 transition-colors" />,
+      title: "TypeScript",
+      ariaLabel: "TypeScript",
+    },
+    {
+      node: <SiTailwindcss className="text-cyan-400 text-5xl hover:text-cyan-300 transition-colors" />,
+      title: "Tailwind CSS",
+      ariaLabel: "Tailwind CSS",
+    },
+    {
+      node: <FaNodeJs className="text-green-500 text-5xl hover:text-green-400 transition-colors" />,
+      title: "Node.js",
+      ariaLabel: "Node.js",
+    },
+    {
+      node: <SiMongodb className="text-green-600 text-5xl hover:text-green-500 transition-colors" />,
+      title: "MongoDB",
+      ariaLabel: "MongoDB",
+    },
+    {
+      node: <SiPostgresql className="text-blue-600 text-5xl hover:text-blue-500 transition-colors" />,
+      title: "PostgreSQL",
+      ariaLabel: "PostgreSQL",
+    },
+    {
+      node: <FaDocker className="text-blue-400 text-5xl hover:text-blue-300 transition-colors" />,
+      title: "Docker",
+      ariaLabel: "Docker",
+    },
+    {
+      node: <FaAws className="text-orange-400 text-5xl hover:text-orange-300 transition-colors" />,
+      title: "AWS",
+      ariaLabel: "AWS",
+    },
+    {
+      node: <FaFigma className="text-purple-400 text-5xl hover:text-purple-300 transition-colors" />,
+      title: "Figma",
+      ariaLabel: "Figma",
+    },
+    {
+      node: <FaLaravel className="text-red-500 text-5xl hover:text-red-400 transition-colors" />,
+      title: "Laravel",
+      ariaLabel: "Laravel",
+    },
+    {
+      node: <FaJs className="text-yellow-400 text-5xl hover:text-yellow-300 transition-colors" />,
+      title: "JavaScript",
+      ariaLabel: "JavaScript",
+    },
+  ];
+
   // (Removed unused getColorClasses helper - colors are defined inline where needed)
 
   return (
@@ -248,82 +317,65 @@ export default function AboutDetailPage() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="bg-white dark:bg-[#0f172a] rounded-2xl shadow-xl p-8 mb-12 border border-gray-200 dark:border-gray-800/50"
             >
-              <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Skills and Techstack</h1>
-              <h2 className="text-lg font-light text-gray-900 dark:text-white mb-8">Here are my skills and the technologies I&apos;ve worked with:</h2>
-
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {Object.entries(skills).map(([category, skillList], categoryIndex) => (
-                  <motion.div key={category} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.6 + categoryIndex * 0.1 }} className="space-y-4">
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">{category}</h3>
-                    <div className="grid gap-3">
-                      {skillList.map((skill: { name: string; icon: string }, index: number) => (
-                        <Button
-                          key={index}
-                          className="!p-0 h-14 w-full !bg-gray-50 dark:!bg-[#0c1322] hover:!bg-gray-100 dark:hover:!bg-[#151e2c] border-0"
-                          containerClassName="w-full h-14"
-                          borderClassName="bg-[radial-gradient(#3e4c66_40%,transparent_60%)] opacity-70"
-                          duration={4000}
-                        >
-                          <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.3, delay: 0.1 * index }} className="flex items-center gap-3 px-4 w-full">
-                            <div className="w-8 h-8 flex items-center justify-center rounded-md bg-blue-100 dark:bg-blue-900/20">{getIconComponent(skill.icon)}</div>
-                            <span className="text-gray-700 dark:text-gray-300 font-medium">{skill.name}</span>
-                          </motion.div>
-                        </Button>
-                      ))}
-                    </div>
-                  </motion.div>
-                ))}
+              <div className="mb-6">
+                {/* Header with DecryptedText animation */}
+                <DecryptedText text="Skills and Techstack" speed={180} animateOn="view" className="text-3xl font-bold text-gray-900 dark:text-white mb-2" encryptedClassName="text-neutral-500" parentClassName="" />
+                <br />
+                <br />
+                <EncryptedText
+                  text="Here are my skills and the technologies I've worked with:"
+                  encryptedClassName="text-neutral-500"
+                  revealedClassName="dark:text-white text-black"
+                  revealDelayMs={40}
+                  className="text-lg font-light text-gray-900 dark:text-white mb-8"
+                />
               </div>
-            </motion.div>
-
-            {/* Certifications Section */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.55 }}
-              className="bg-white dark:bg-[#0f172a] rounded-2xl shadow-xl p-8 mb-12 border border-gray-200 dark:border-gray-800/50"
-            >
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Bootcamp Certifications</h2>
-
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {certifications.map((cert, idx) => (
-                  <FlipCard
-                    key={idx}
-                    frontContent={
-                      <div className="bg-gray-50 dark:bg-[#0c1322] rounded-lg p-6 shadow-sm h-full flex flex-col justify-between cursor-pointer transition-transform hover:scale-[1.02]">
-                        <div>
-                          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{cert.title}</h3>
-                          <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">
-                            {cert.issuer} • {cert.year}
-                          </p>
-                        </div>
-                        <div className="mt-4 space-y-3">
-                          {cert.link && (
-                            <Button
-                              as="a"
-                              href={cert.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="w-full h-10 !px-3 !bg-transparent text-black dark:text-white border border-gray-200 dark:border-gray-800 hover:!bg-gray-100 dark:hover:!bg-[#0b1220] text-sm"
-                              onClick={(e: React.MouseEvent) => e.stopPropagation()}
-                            >
-                              View Certificate
-                            </Button>
-                          )}
-                          <p className="text-sm text-blue-500 dark:text-blue-400 text-center italic">Click to see details</p>
-                        </div>
-                      </div>
-                    }
-                    backContent={
-                      <div className="bg-gray-50 dark:bg-[#0c1322] rounded-lg p-6 shadow-sm h-full flex flex-col justify-between cursor-pointer">
-                        <div>
-                          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">{cert.title}</h3>
-                          <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">{cert.description}</p>
-                        </div>
-                      </div>
-                    }
-                  />
-                ))}
+              <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                <li>
+                  <DecryptedText text="Languages" speed={200} animateOn="view" className="font-bold text-base mb-1 inline-block whitespace-normal" encryptedClassName="text-neutral-500" />
+                  <br />
+                  <EncryptedText text="JavaScript, TypeScript, Python, PHP" encryptedClassName="text-neutral-500" revealedClassName="dark:text-white text-black" revealDelayMs={40} className="text-sm" />
+                </li>
+                <li>
+                  <DecryptedText text="Frontend" speed={200} animateOn="view" className="font-bold text-base mb-1 inline-block whitespace-normal" encryptedClassName="text-neutral-500" />
+                  <br />
+                  <EncryptedText text="HTML5, CSS3, Responsive Design (Flexbox), WordPress, Webflow" encryptedClassName="text-neutral-500" revealedClassName="dark:text-white text-black" revealDelayMs={40} className="text-sm" />
+                </li>
+                <li>
+                  <DecryptedText text="Backend & APIs" speed={200} animateOn="view" className="font-bold text-base mb-1 inline-block whitespace-normal" encryptedClassName="text-neutral-500" />
+                  <br />
+                  <EncryptedText text="RESTful API Design, CRUD, Modularization, AWS EC2 Deployment, Postman" encryptedClassName="text-neutral-500" revealedClassName="dark:text-white text-black" revealDelayMs={40} className="text-sm" />
+                </li>
+                <li>
+                  <DecryptedText text="Framework" speed={200} animateOn="view" className="font-bold text-base mb-1 inline-block whitespace-normal" encryptedClassName="text-neutral-500" />
+                  <br />
+                  <EncryptedText text="React, Next.js, Node.js, Express.js, TailwindCSS" encryptedClassName="text-neutral-500" revealedClassName="dark:text-white text-black" revealDelayMs={40} className="text-sm" />
+                </li>
+                <li>
+                  <DecryptedText text="Databases" speed={200} animateOn="view" className="font-bold text-base mb-1 inline-block whitespace-normal" encryptedClassName="text-neutral-500" />
+                  <br />
+                  <EncryptedText text="MySQL, MongoDB, SQLite, PostgreSQL" encryptedClassName="text-neutral-500" revealedClassName="dark:text-white text-black" revealDelayMs={40} className="text-sm" />
+                </li>
+                <li>
+                  <DecryptedText text="UI/UX Design" speed={200} animateOn="view" className="font-bold text-base mb-1 inline-block whitespace-normal" encryptedClassName="text-neutral-500" />
+                  <br />
+                  <EncryptedText text="Figma" encryptedClassName="text-neutral-500" revealedClassName="dark:text-white text-black" revealDelayMs={40} className="text-sm" />
+                </li>
+              </ul>
+              <div className="relative mb-8">
+                <LogoLoop
+                  logos={logos.slice().reverse()}
+                  speed={80}
+                  direction="right"
+                  logoHeight={70}
+                  gap={70}
+                  pauseOnHover={false}
+                  fadeOut={false}
+                  scaleOnHover={true}
+                  ariaLabel="Technologies and tools reverse"
+                  className="py-6 w-full"
+                  width="100%"
+                />
               </div>
             </motion.div>
 
