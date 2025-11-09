@@ -66,7 +66,7 @@ export default function AboutPage() {
                   {/* Card Profil dengan animasi CometCard */}
                   <div className="flex justify-center items-start h-full mt-8 lg:mt-0">
                     <CometCard className="w-full max-w-md">
-                      <div className="relative bg-white dark:bg-[#0f172a] rounded-2xl p-8 overflow-hidden border border-gray-200 dark:border-gray-800/50 shadow-lg">
+                      <div className="relative bg-gray-400 dark:bg-[#0f172a] rounded-2xl p-8 overflow-hidden border border-gray-200 dark:border-gray-800/50 shadow-lg">
                         {/* Background Glow Effect */}
                         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-1/2 bg-blue-500/10 dark:bg-blue-500/5 rounded-full blur-3xl" />
                         {/* Profile Content */}
@@ -81,7 +81,7 @@ export default function AboutPage() {
                           <p className="text-blue-600 dark:text-blue-400 mb-8">Full Stack Developer</p>
 
                           {/* Contact Section */}
-                          <div className="w-full flex items-center justify-between space-x-4 bg-gray-100 dark:bg-[#0c1322] rounded-2xl p-4">
+                          <div className="w-full flex items-center justify-between space-x-4 bg-gray-300 dark:bg-[#0c1322] rounded-2xl p-4">
                             {/* Username */}
                             <div className="flex items-center space-x-3">
                               <div className="w-10 h-10 rounded-full overflow-hidden relative">

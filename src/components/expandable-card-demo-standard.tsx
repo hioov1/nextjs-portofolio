@@ -49,7 +49,7 @@ export default function ExpandableCardDemo() {
                   duration: 0.05,
                 },
               }}
-              className="flex absolute top-4 right-4 items-center justify-center bg-white/90 dark:bg-neutral-800/90 rounded-full h-8 w-8 z-50 backdrop-blur-sm"
+              className="flex absolute top-4 right-4 items-center justify-center bg-white/90 dark:bg-neutral-800/50 rounded-full h-8 w-8 z-50 backdrop-blur-sm"
               onClick={() => setActive(null)}
             >
               <CloseIcon />
@@ -60,7 +60,7 @@ export default function ExpandableCardDemo() {
               </motion.div>
 
               <div>
-                <div className="flex justify-between items-start p-4">
+                <div className="flex justify-between items-start p-4 ">
                   <div className="">
                     <motion.h3 layoutId={`title-${active.title}-${id}`} className="font-bold text-neutral-700 dark:text-neutral-200">
                       {active.title}
@@ -160,7 +160,7 @@ const cards = [
     description: "Desktop cashier app to handle billiard and f&b sales",
     src: "/assets/images/projects/cashier.jpg",
     ctaText: "View Project",
-    ctaLink: "https://github.com/yourusername/portfolio",
+    ctaLink: "https://github.com/hioov1/Kasir-Billiard-Fnb-dokumentasi",
     content: () => {
       return (
         <div className="space-y-4">

@@ -2,8 +2,8 @@
 
 import React from "react";
 import LogoLoop from "@/components/LogoLoop";
-import { FaReact, FaNodeJs, FaDocker, FaAws, FaFigma, FaLaravel, FaJs } from "react-icons/fa";
-import { SiNextdotjs, SiTypescript, SiTailwindcss, SiMongodb, SiPostgresql } from "react-icons/si";
+import { FaReact, FaNodeJs, FaPython, FaAws, FaFigma, FaLaravel, FaJs, FaPhp, FaGitAlt } from "react-icons/fa";
+import { SiNextdotjs, SiTypescript, SiTailwindcss, SiMongodb, SiPostgresql, SiMysql, SiExpress, SiSqlite } from "react-icons/si";
 
 export default function LogoSectionPage() {
   const logos = [
@@ -13,7 +13,7 @@ export default function LogoSectionPage() {
       ariaLabel: "React",
     },
     {
-      node: <SiNextdotjs className="text-white text-5xl hover:text-gray-300 transition-colors" />,
+      node: <SiNextdotjs className="text-gray-300 dark:text-white text-5xl hover:text-gray-300 transition-colors" />,
       title: "Next.js",
       ariaLabel: "Next.js",
     },
@@ -42,11 +42,7 @@ export default function LogoSectionPage() {
       title: "PostgreSQL",
       ariaLabel: "PostgreSQL",
     },
-    {
-      node: <FaDocker className="text-blue-400 text-5xl hover:text-blue-300 transition-colors" />,
-      title: "Docker",
-      ariaLabel: "Docker",
-    },
+
     {
       node: <FaAws className="text-orange-400 text-5xl hover:text-orange-300 transition-colors" />,
       title: "AWS",
@@ -66,6 +62,36 @@ export default function LogoSectionPage() {
       node: <FaJs className="text-yellow-400 text-5xl hover:text-yellow-300 transition-colors" />,
       title: "JavaScript",
       ariaLabel: "JavaScript",
+    },
+    {
+      node: <FaPython className="text-[#3776AB] text-5xl hover:opacity-80 transition-opacity" />,
+      title: "Python",
+      ariaLabel: "Python",
+    },
+    {
+      node: <FaPhp className="text-[#777BB4] text-5xl hover:opacity-80 transition-opacity" />,
+      title: "PHP",
+      ariaLabel: "PHP",
+    },
+    {
+      node: <SiExpress className="text-[#000000] dark:text-white text-5xl hover:opacity-80 transition-opacity" />,
+      title: "Express.js",
+      ariaLabel: "Express.js",
+    },
+    {
+      node: <SiSqlite className="text-[#003B57] dark:text-[#97D2FF] text-5xl hover:opacity-80 transition-opacity" />,
+      title: "SQLite",
+      ariaLabel: "SQLite",
+    },
+    {
+      node: <SiMysql className="text-[#4479A1] text-5xl hover:opacity-80 transition-opacity" />,
+      title: "MySQL",
+      ariaLabel: "MySQL",
+    },
+    {
+      node: <FaGitAlt className="text-orange-600 text-5xl hover:text-orange-500 transition-colors" />,
+      title: "Git",
+      ariaLabel: "Git",
     },
   ];
 

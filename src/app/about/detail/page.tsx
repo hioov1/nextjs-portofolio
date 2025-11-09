@@ -6,8 +6,8 @@ import { useRouter } from "next/navigation";
 import { Spotlight } from "@/components/ui/spotlight";
 import { Button } from "@/components/ui/moving-border";
 import { LogoLoop } from "@/components/LogoLoop";
-import { FaReact, FaNodeJs, FaDocker, FaAws, FaFigma, FaLaravel, FaJs } from "react-icons/fa";
-import { SiNextdotjs, SiTypescript, SiTailwindcss, SiMongodb, SiPostgresql } from "react-icons/si";
+import { FaReact, FaNodeJs, FaPython, FaAws, FaFigma, FaLaravel, FaJs, FaPhp, FaGitAlt } from "react-icons/fa";
+import { SiNextdotjs, SiTypescript, SiTailwindcss, SiMongodb, SiPostgresql, SiExpress, SiSqlite, SiMysql } from "react-icons/si";
 
 import { ResizableNavbar } from "@/components/ui/resizable-navbar";
 import { Timeline } from "@/components/ui/timeline";
@@ -211,11 +211,7 @@ export default function AboutDetailPage() {
       title: "PostgreSQL",
       ariaLabel: "PostgreSQL",
     },
-    {
-      node: <FaDocker className="text-blue-400 text-5xl hover:text-blue-300 transition-colors" />,
-      title: "Docker",
-      ariaLabel: "Docker",
-    },
+
     {
       node: <FaAws className="text-orange-400 text-5xl hover:text-orange-300 transition-colors" />,
       title: "AWS",
@@ -235,6 +231,36 @@ export default function AboutDetailPage() {
       node: <FaJs className="text-yellow-400 text-5xl hover:text-yellow-300 transition-colors" />,
       title: "JavaScript",
       ariaLabel: "JavaScript",
+    },
+    {
+      node: <FaPython className="text-[#3776AB] text-5xl hover:opacity-80 transition-opacity" />,
+      title: "Python",
+      ariaLabel: "Python",
+    },
+    {
+      node: <FaPhp className="text-[#777BB4] text-5xl hover:opacity-80 transition-opacity" />,
+      title: "PHP",
+      ariaLabel: "PHP",
+    },
+    {
+      node: <SiExpress className="text-[#000000] dark:text-white text-5xl hover:opacity-80 transition-opacity" />,
+      title: "Express.js",
+      ariaLabel: "Express.js",
+    },
+    {
+      node: <SiSqlite className="text-[#003B57] dark:text-[#97D2FF] text-5xl hover:opacity-80 transition-opacity" />,
+      title: "SQLite",
+      ariaLabel: "SQLite",
+    },
+    {
+      node: <SiMysql className="text-[#4479A1] text-5xl hover:opacity-80 transition-opacity" />,
+      title: "MySQL",
+      ariaLabel: "MySQL",
+    },
+    {
+      node: <FaGitAlt className="text-orange-600 text-5xl hover:text-orange-500 transition-colors" />,
+      title: "Git",
+      ariaLabel: "Git",
     },
   ];
 
@@ -376,7 +402,14 @@ export default function AboutDetailPage() {
                   className="py-6 w-full"
                   width="100%"
                 />
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                  <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple/20 rounded-full blur-3xl"></div>
+                  <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl"></div>
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
+                </div>
               </div>
+
+              {/* Background decoration */}
             </motion.div>
 
             {/* Journey Section (now using Timeline) */}
