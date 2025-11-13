@@ -154,7 +154,7 @@ const ContactAndFooter: React.FC = () => {
     <div className="overflow-x-hidden">
       {/* Contact Section */}
       <Spotlight />
-      <div id="contact" ref={contactRef} className="relative min-h-screen overflow-hidden pb-32 px-0 md:px-0 pt-24 bg-white dark:bg-black">
+      <div id="contact" ref={contactRef} className="relative min-h-screen overflow-hidden pb-16 sm:pb-24 lg:pb-32 px-4 sm:px-6 md:px-8 lg:px-0 pt-16 sm:pt-20 lg:pt-24 bg-white dark:bg-black">
         {/* Decorative circle on bottom right */}
         <motion.div className="absolute bottom-0 right-0 w-96 h-96 hidden md:block" animate={isContactInView ? "animate" : "initial"} variants={floatingObjectVariant}>
           <div className="relative w-full h-full">
@@ -188,27 +188,27 @@ const ContactAndFooter: React.FC = () => {
         {/* Contact card */}
         <motion.div variants={containerVariants} initial="hidden" animate={isContactInView ? "visible" : "hidden"} className="container mx-auto max-w-5xl">
           <motion.div
-            className="bg-[#0f172a] dark:bg-[#0f172a] rounded-3xl p-8 md:p-12 shadow-xl flex flex-col md:flex-row gap-8 md:gap-12 border border-gray-800/40"
+            className="bg-gradient-to-br from-white/15 to-white/8 backdrop-blur-md rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] hover:shadow-[0_8px_32px_0_rgba(31,38,135,0.5)] flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-12 transition-all duration-300 hover:bg-gradient-to-br "
             initial={{ opacity: 0, y: 40 }}
             animate={isContactInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
             transition={{ duration: 0.8 }}
           >
             {/* Left side - Contact Info */}
             <div className="md:w-2/5">
-              <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl font-bold text-white mb-6">
+              <motion.h2 variants={itemVariants} className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-black dark:text-white mb-4 sm:mb-6">
                 Get in touch
               </motion.h2>
 
-              <motion.p variants={itemVariants} className="text-gray-300 mb-8 leading-relaxed font-sans">
+              <motion.p variants={itemVariants} className="text-black dark:text-gray-300 mb-6 sm:mb-8 leading-relaxed font-sans text-sm sm:text-base">
                 I'm available to work. However, if you have another request or question, don't hesitate to contact me.{" "}
               </motion.p>
 
-              <div className="space-y-6">
-                <motion.div variants={itemVariants} className="flex items-center gap-4">
-                  <motion.div variants={iconVariants} className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center">
-                    <Mail size={18} className="text-gray-300" />
+              <div className="space-y-4 sm:space-y-6">
+                <motion.div variants={itemVariants} className="flex items-center gap-3 sm:gap-4">
+                  <motion.div variants={iconVariants} className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-700 rounded-full flex items-center justify-center">
+                    <Mail size={16} className="text-gray-300 sm:w-[18px] sm:h-[18px]" />
                   </motion.div>
-                  <a href="mailto:hioov1mail@gmail.com" className="text-white hover:underline hover:text-blue-600 font-sans" target="_blank">
+                  <a href="mailto:hioov1mail@gmail.com" className="text-black dark:text-gray-300 hover:underline hover:text-blue-600 font-sans text-sm sm:text-base" target="_blank">
                     <span>hioov1mail@gmail.com</span>
                   </a>
                 </motion.div>
@@ -217,7 +217,7 @@ const ContactAndFooter: React.FC = () => {
 
             {/* Right side - Contact Form */}
             <div className="md:w-3/5">
-              <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl font-bold mb-6 text-white">
+              <motion.h2 variants={itemVariants} className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 text-black dark:text-white">
                 Send me a message
               </motion.h2>
 
@@ -253,7 +253,7 @@ const ContactAndFooter: React.FC = () => {
                     type="text"
                     name="name"
                     placeholder="Name"
-                    className="w-full py-3 px-4 bg-cyan-950/60 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 font-sans border border-gray-800/40"
+                    className="w-full py-2 px-3 sm:py-3 sm:px-4 bg-blue-400/30 rounded-lg text-white placeholder:text-black dark:placeholder:text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 font-sans text-sm sm:text-base"
                     required
                     value={formData.name}
                     onChange={handleChange}
@@ -265,7 +265,7 @@ const ContactAndFooter: React.FC = () => {
                     type="email"
                     name="email"
                     placeholder="Email Address"
-                    className="w-full py-3 px-4 bg-cyan-950/60 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 font-sans border border-gray-800/40"
+                    className="w-full py-2 px-3 sm:py-3 sm:px-4 bg-blue-400/30 rounded-lg text-white placeholder:text-black dark:placeholder:text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 font-sans text-sm sm:text-base"
                     required
                     value={formData.email}
                     onChange={handleChange}
@@ -277,7 +277,7 @@ const ContactAndFooter: React.FC = () => {
                     name="message"
                     placeholder="Your message"
                     rows={5}
-                    className="w-full py-3 px-4 bg-cyan-950/60 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none font-sans border border-gray-800/40"
+                    className="w-full py-2 px-3 sm:py-3 sm:px-4 bg-blue-400/30 rounded-lg text-white placeholder:text-black dark:placeholder:text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none font-sans text-sm sm:text-base"
                     required
                     value={formData.message}
                     onChange={handleChange}
@@ -285,7 +285,10 @@ const ContactAndFooter: React.FC = () => {
                 </motion.div>
 
                 <motion.div variants={formFieldVariants}>
-                  <button type="submit" className="px-8 py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg text-white font-medium hover:opacity-90 transition-opacity cursor-pointer">
+                  <button
+                    type="submit"
+                    className="px-4 py-2 sm:px-6 sm:py-3 md:px-8 bg-blue-400/40 backdrop-blur-md  rounded-lg text-black dark:text-white font-medium text-sm sm:text-base shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] hover:shadow-[0_8px_32px_0_rgba(31,38,135,0.5)] hover:bg-blue-400 transition-all duration-300 cursor-pointer"
+                  >
                     Send message
                   </button>
                 </motion.div>
@@ -298,28 +301,28 @@ const ContactAndFooter: React.FC = () => {
       </div>
 
       {/* Footer Section */}
-      <div ref={footerRef} className="bg-white dark:bg-black py-16 px-0 md:px-0">
+      <div ref={footerRef} className="bg-gray-100 dark:bg-blue-600/10 py-8 sm:py-12 lg:py-16 px-4 sm:px-6 md:px-8 lg:px-0">
         <div className="container mx-auto max-w-6xl">
           {/* Navigation Links */}
-          <motion.div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 ">Follow me on Social Media</h2>
-            <div className="w-56 h-1 bg-blue-500 mx-auto mb-6"></div>
+          <motion.div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">Follow me on Social Media</h2>
+            <div className="w-32 sm:w-48 md:w-56 h-1 bg-blue-500 mx-auto mb-4 sm:mb-6"></div>
           </motion.div>
 
           {/* Social Media Icons */}
-          <motion.div className="flex justify-center gap-4 mb-12" initial={{ opacity: 0 }} animate={isFooterInView ? { opacity: 1 } : { opacity: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
+          <motion.div className="flex justify-center gap-3 sm:gap-4 mb-8 sm:mb-12" initial={{ opacity: 0 }} animate={isFooterInView ? { opacity: 1 } : { opacity: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
             {socialLinks.map((item, index) => (
-              <motion.a key={index} href={item.url} target="_blank" rel="noopener noreferrer" className={`w-10 h-10 rounded-full flex items-center justify-center text-white ${item.color} hover:scale-110 transition-transform`}>
+              <motion.a key={index} href={item.url} target="_blank" rel="noopener noreferrer" className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-white ${item.color} hover:scale-110 transition-transform`}>
                 {item.icon}
               </motion.a>
             ))}
           </motion.div>
 
           {/* Footer Divider */}
-          <motion.div className="h-px bg-gray-700 mb-6" initial={{ scaleX: 0 }} animate={isFooterInView ? { scaleX: 1 } : { scaleX: 0 }} transition={{ duration: 0.8, delay: 0.4 }} />
+          <motion.div className="h-px bg-gray-700 mb-4 sm:mb-6" initial={{ scaleX: 0 }} animate={isFooterInView ? { scaleX: 1 } : { scaleX: 0 }} transition={{ duration: 0.8, delay: 0.4 }} />
 
           {/* Terms & Privacy */}
-          <motion.div className="flex justify-center text-sm text-gray-400 font-sans" initial={{ opacity: 0 }} animate={isFooterInView ? { opacity: 1 } : { opacity: 0 }} transition={{ duration: 0.6, delay: 0.6 }}>
+          <motion.div className="flex justify-center text-xs sm:text-sm text-gray-400 font-sans px-4" initial={{ opacity: 0 }} animate={isFooterInView ? { opacity: 1 } : { opacity: 0 }} transition={{ duration: 0.6, delay: 0.6 }}>
             <div className="space-x-2">
               <p>
                 © Copyright 2025,{" "}

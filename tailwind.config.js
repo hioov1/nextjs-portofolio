@@ -9,6 +9,7 @@ module.exports = {
         extend: {
             animation: {
                 spotlight: "spotlight 3s ease-out infinite",
+                scroll: "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
             },
             keyframes: {
                 spotlight: {
@@ -23,6 +24,14 @@ module.exports = {
                     "100%": {
                         opacity: 0,
                         transform: "scale(0.9) translate(0, 20px)",
+                    },
+                },
+                scroll: {
+                    "0%": {
+                        transform: "translateX(0)",
+                    },
+                    "100%": {
+                        transform: "translateX(-100%)",
                     },
                 },
             },

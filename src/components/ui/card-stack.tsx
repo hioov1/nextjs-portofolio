@@ -32,25 +32,27 @@ export const CardStack = ({ items, offset, scaleFactor }: { items: Card[]; offse
   };
 
   return (
-    <div className="relative  h-60 w-60 md:h-60 md:w-96">
+    <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-sm xl:max-w-md mx-auto" style={{ height: `${60 + (cards.length - 1) * CARD_OFFSET}px` }}>
       {cards.map((card, index) => {
         return (
           <motion.div
             key={card.id}
-            className="absolute bg-gray-300 dark:bg-black h-60 w-60 md:h-60 md:w-96 rounded-3xl p-4 shadow-xl border border-gray-500/[0.1] dark:border-white/[0.1]  shadow-gray-500/[0.1] dark:shadow-white/[0.05] flex flex-col justify-between"
+            className="absolute bg-gray-300 dark:bg-black h-60 w-full rounded-3xl p-4 sm:p-5 shadow-xl border border-gray-500/[0.1] dark:border-white/[0.1] shadow-gray-500/[0.1] dark:shadow-white/[0.05] flex flex-col justify-between"
             style={{
               transformOrigin: "top center",
             }}
             animate={{
               top: index * -CARD_OFFSET,
-              scale: 1 - index * SCALE_FACTOR, // decrease scale for cards that are behind
-              zIndex: cards.length - index, //  decrease z-index for the cards that are behind
+              scale: 1 - index * SCALE_FACTOR,
+              zIndex: cards.length - index,
             }}
           >
-            <div className="font-normal text-black dark:text-white">{card.content}</div>
-            <div>
-              <p className="text-black font-medium dark:text-white">{card.name}</p>
-              <p className="text-black font-normal dark:text-white">{card.designation}</p>
+            <div className="font-normal text-black dark:text-white text-sm sm:text-base leading-relaxed overflow-hidden">
+              {card.content}
+            </div>
+            <div className="mt-3">
+              <p className="text-black font-medium dark:text-white text-base sm:text-lg">{card.name}</p>
+              <p className="text-black font-normal dark:text-white text-sm opacity-80">{card.designation}</p>
             </div>
           </motion.div>
         );

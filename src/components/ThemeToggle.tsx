@@ -26,12 +26,12 @@ const ThemeToggle = () => {
   return (
     <motion.button
       onClick={toggleTheme}
-      className="relative p-2 rounded-full bg-gradient-to-r from-primary-blue/10 to-primary-purple/10 hover:from-primary-blue/20 hover:to-primary-purple/20 dark:from-primary-blue/20 dark:to-primary-purple/20 dark:hover:from-primary-blue/30 dark:hover:to-primary-purple/30 border border-border-light dark:border-border-dark transition-all duration-300 cursor-pointer"
+      className="relative p-1.5 sm:p-2 rounded-full bg-gradient-to-r from-primary-blue/10 to-primary-purple/10 hover:from-primary-blue/20 hover:to-primary-purple/20 dark:from-primary-blue/20 dark:to-primary-purple/20 dark:hover:from-primary-blue/30 dark:hover:to-primary-purple/30 border border-border-light dark:border-border-dark transition-all duration-300 cursor-pointer"
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       aria-label="Toggle theme"
     >
-      <motion.div initial={false} animate={{ rotate: darkMode ? 180 : 0 }} transition={{ duration: 0.3, ease: "easeInOut" }} className="relative w-6 h-6">
+      <motion.div initial={false} animate={{ rotate: darkMode ? 180 : 0 }} transition={{ duration: 0.3, ease: "easeInOut" }} className="relative w-5 h-5 sm:w-6 sm:h-6">
         <motion.div initial={false} animate={{ opacity: darkMode ? 0 : 1 }} transition={{ duration: 0.2 }} className="absolute inset-0 text-yellow-400">
           <FiSun className="w-full h-full" />
         </motion.div>

@@ -9,9 +9,8 @@ import { LogoLoop } from "@/components/LogoLoop";
 import { FaReact, FaNodeJs, FaPython, FaAws, FaFigma, FaLaravel, FaJs, FaPhp, FaGitAlt } from "react-icons/fa";
 import { SiNextdotjs, SiTypescript, SiTailwindcss, SiMongodb, SiPostgresql, SiExpress, SiSqlite, SiMysql } from "react-icons/si";
 
-import { ResizableNavbar } from "@/components/ui/resizable-navbar";
 import { Timeline } from "@/components/ui/timeline";
-import { FlipCard } from "@/components/ui/flip-card";
+
 import { EncryptedText } from "@/components/ui/encrypted-text";
 import DecryptedText from "@/components/DecryptedText";
 import { IconBrandGithub, IconBrandLinkedin, IconBrandTwitter, IconMail, IconBrandInstagram, IconBrandFacebook } from "@tabler/icons-react";
@@ -54,34 +53,6 @@ const getIconComponent = (iconName: string) => {
 
 export default function AboutDetailPage() {
   const router = useRouter();
-
-  const skills = {
-    Frontend: [
-      { name: "React", icon: "IconBrandReact" },
-      { name: "Next.js", icon: "IconBrandNextjs" },
-      { name: "Tailwind CSS", icon: "IconBrandTailwind" },
-      { name: "TypeScript", icon: "IconBrandTypescript" },
-      { name: "JavaScript", icon: "IconBrandJavascript" },
-    ],
-    Backend: [
-      { name: "Node.js", icon: "IconBrandNodejs" },
-      { name: "Express.js", icon: "IconBrandNodejs" },
-      { name: "MongoDB", icon: "IconDatabase" },
-      { name: "PostgreSQL", icon: "IconDatabase" },
-    ],
-    Tools: [
-      { name: "Git", icon: "IconBrandGit" },
-      { name: "AWS", icon: "IconBrandAws" },
-      { name: "Figma", icon: "IconBrandFigma" },
-      { name: "Postman", icon: "IconApi" },
-    ],
-    Other: [
-      { name: "REST APIs", icon: "IconApi" },
-      { name: "RESTful API", icon: "IconApi" },
-      { name: "CRUD", icon: "IconDatabaseEdit" },
-      { name: "Prisma", icon: "IconDatabase" },
-    ],
-  };
 
   const journey = [
     {
@@ -182,7 +153,7 @@ export default function AboutDetailPage() {
       ariaLabel: "React",
     },
     {
-      node: <SiNextdotjs className="text-white text-5xl hover:text-gray-300 transition-colors" />,
+      node: <SiNextdotjs className="text-black text-5xl dark:text-white hover:text-gray-300 transition-colors" />,
       title: "Next.js",
       ariaLabel: "Next.js",
     },
@@ -275,18 +246,21 @@ export default function AboutDetailPage() {
       </div>
 
       <div className="relative z-20 h-full overflow-y-auto no-scrollbar">
-        <div className="min-h-screen px-4 sm:px-6 lg:px-8 py-20">
+        <div className="min-h-screen px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-20">
           <div className="max-w-6xl mx-auto relative z-10">
             {/* Header */}
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center mb-16">
-              <button onClick={() => router.back()} className="inline-flex items-center text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 mb-6 transition-colors duration-200 cursor-pointer">
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center mb-8 sm:mb-12 lg:mb-16">
+              <button
+                onClick={() => router.back()}
+                className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-white/15 to-white/8 backdrop-blur-md border border-white/20 rounded-lg text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 mb-4 sm:mb-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] hover:shadow-[0_8px_32px_0_rgba(31,38,135,0.5)] hover:bg-gradient-to-r hover:from-white/20 hover:to-white/10 transition-all duration-300 cursor-pointer text-sm sm:text-base"
+              >
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
                 Back to About
               </button>
-              <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">About Me</h1>
-              <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">Dive deeper into my background, skills, and professional journey</p>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-3 sm:mb-4">About Me</h1>
+              <p className="text-sm sm:text-base lg:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto px-4">Dive deeper into my background, skills, and professional journey</p>
             </motion.div>
 
             {/* Personal Info */}
@@ -294,21 +268,34 @@ export default function AboutDetailPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-white dark:bg-[#0f172a] rounded-2xl shadow-xl p-8 mb-12 border border-gray-200 dark:border-gray-800/50"
+              className="bg-white dark:bg-[#0f172a] rounded-2xl shadow-xl p-4 sm:p-6 lg:p-8 mb-8 sm:mb-10 lg:mb-12 border border-gray-200 dark:border-gray-800/50"
             >
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="space-y-4">
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Personal Information</h2>
-                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                <div className="space-y-3 sm:space-y-4">
+                  <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">Personal Information</h2>
+                  <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
                     I’m a freelance Fullstack Developer passionate about building modern digital solutions from crafting intuitive user interfaces to developing robust backend systems. I enjoy turning ideas into efficient, functional, and
                     meaningful technology.
                   </p>
-                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">I continuously adapt to the fast-paced evolution of the tech world, embracing AI to boost productivity and enhance the quality of my work.</p>
-                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">I’m always ready to collaborate and open to new opportunities, especially projects that challenge my skills and create real impact.</p>
+                  <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+                    I continuously adapt to the fast-paced evolution of the tech world, embracing AI to boost productivity and enhance the quality of my work.
+                  </p>
+                  <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+                    I’m always ready to collaborate and open to new opportunities, especially projects that challenge my skills and create real impact.
+                    <br />
+                    Here My{" "}
+                    <LinkPreview url="https://drive.google.com/file/d/1example-cv-link/view" width={300} height={200} isStatic={true} imageSrc="/assets/images/cv-preview.png">
+                      <span className="text-black dark:text-white hover:text-blue-700 dark:hover:text-blue-300 font-medium cursor-pointer  decoration-2 underline-offset-2 hover:decoration-blue-600 dark:hover:decoration-blue-300 transition-all duration-200">
+                        CV Resume.
+                      </span>
+                    </LinkPreview>
+                  </p>
+
+                  <div className="mt-6"></div>
                 </div>
-                <div className="space-y-4">
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Connect with me</h2>
-                  <div className="grid grid-cols-2 gap-4 pt-4">
+                <div className="space-y-3 sm:space-y-4">
+                  <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">Connect with me</h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-2 sm:pt-4">
                     {socialLinks.map((link, index) => (
                       <LinkPreview key={index} url={link.url} width={300} height={200} isStatic={true} imageSrc={link.previewImage}>
                         <Button
@@ -319,7 +306,7 @@ export default function AboutDetailPage() {
                             const newWindow = window.open(link.url, "_blank");
                             if (newWindow) newWindow.opener = null;
                           }}
-                          className="h-12 w-full !bg-[#0c1322] text-white border-0 hover:!bg-[#151e2c] transition-colors cursor-pointer"
+                          className="h-12 w-full !bg-gradient-to-r !from-white/15 !to-white/8 !backdrop-blur-md !border !border-white/20 text-white hover:!bg-gradient-to-r hover:!from-white/20 hover:!to-white/10 !shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] hover:!shadow-[0_8px_32px_0_rgba(31,38,135,0.5)] !transition-all !duration-300 cursor-pointer"
                           containerClassName="w-full h-12"
                           borderClassName="bg-[radial-gradient(#3e4c66_40%,transparent_60%)] opacity-90"
                           duration={4000}
@@ -341,11 +328,11 @@ export default function AboutDetailPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="bg-white dark:bg-[#0f172a] rounded-2xl shadow-xl p-8 mb-12 border border-gray-200 dark:border-gray-800/50"
+              className="bg-white dark:bg-[#0f172a] rounded-2xl shadow-xl p-4 sm:p-6 lg:p-8 mb-8 sm:mb-10 lg:mb-12 border border-gray-200 dark:border-gray-800/50"
             >
-              <div className="mb-6">
+              <div className="mb-4 sm:mb-6">
                 {/* Header with DecryptedText animation */}
-                <DecryptedText text="Skills and Techstack" speed={180} animateOn="view" className="text-3xl font-bold text-gray-900 dark:text-white mb-2" encryptedClassName="text-neutral-500" parentClassName="" />
+                <DecryptedText text="Skills and Techstack" speed={180} animateOn="view" className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-2" encryptedClassName="text-neutral-500" parentClassName="" />
                 <br />
                 <br />
                 <EncryptedText
@@ -353,53 +340,59 @@ export default function AboutDetailPage() {
                   encryptedClassName="text-neutral-500"
                   revealedClassName="dark:text-white text-black"
                   revealDelayMs={40}
-                  className="text-lg font-light text-gray-900 dark:text-white mb-8"
+                  className="text-sm sm:text-base lg:text-lg font-light text-gray-900 dark:text-white mb-6 sm:mb-8"
                 />
               </div>
-              <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
                 <li>
-                  <DecryptedText text="Languages" speed={200} animateOn="view" className="font-bold text-base mb-1 inline-block whitespace-normal" encryptedClassName="text-neutral-500" />
+                  <DecryptedText text="Languages" speed={200} animateOn="view" className="font-bold text-sm sm:text-base mb-1 inline-block whitespace-normal" encryptedClassName="text-neutral-500" />
                   <br />
-                  <EncryptedText text="JavaScript, TypeScript, Python, PHP" encryptedClassName="text-neutral-500" revealedClassName="dark:text-white text-black" revealDelayMs={40} className="text-sm" />
+                  <EncryptedText text="JavaScript, TypeScript, Python, PHP" encryptedClassName="text-neutral-500" revealedClassName="dark:text-white text-black" revealDelayMs={40} className="text-xs sm:text-sm" />
                 </li>
                 <li>
-                  <DecryptedText text="Frontend" speed={200} animateOn="view" className="font-bold text-base mb-1 inline-block whitespace-normal" encryptedClassName="text-neutral-500" />
+                  <DecryptedText text="Frontend" speed={200} animateOn="view" className="font-bold text-sm sm:text-base mb-1 inline-block whitespace-normal" encryptedClassName="text-neutral-500" />
                   <br />
-                  <EncryptedText text="HTML5, CSS3, Responsive Design (Flexbox), WordPress, Webflow" encryptedClassName="text-neutral-500" revealedClassName="dark:text-white text-black" revealDelayMs={40} className="text-sm" />
+                  <EncryptedText text="HTML5, CSS3, Responsive Design (Flexbox), WordPress, Webflow" encryptedClassName="text-neutral-500" revealedClassName="dark:text-white text-black" revealDelayMs={40} className="text-xs sm:text-sm" />
                 </li>
                 <li>
-                  <DecryptedText text="Backend & APIs" speed={200} animateOn="view" className="font-bold text-base mb-1 inline-block whitespace-normal" encryptedClassName="text-neutral-500" />
+                  <DecryptedText text="Backend & APIs" speed={200} animateOn="view" className="font-bold text-sm sm:text-base mb-1 inline-block whitespace-normal" encryptedClassName="text-neutral-500" />
                   <br />
-                  <EncryptedText text="RESTful API Design, CRUD, Modularization, AWS EC2 Deployment, Postman" encryptedClassName="text-neutral-500" revealedClassName="dark:text-white text-black" revealDelayMs={40} className="text-sm" />
+                  <EncryptedText
+                    text="RESTful API Design, CRUD, Modularization, AWS EC2 Deployment, Postman"
+                    encryptedClassName="text-neutral-500"
+                    revealedClassName="dark:text-white text-black"
+                    revealDelayMs={40}
+                    className="text-xs sm:text-sm"
+                  />
                 </li>
                 <li>
-                  <DecryptedText text="Framework" speed={200} animateOn="view" className="font-bold text-base mb-1 inline-block whitespace-normal" encryptedClassName="text-neutral-500" />
+                  <DecryptedText text="Framework" speed={200} animateOn="view" className="font-bold text-sm sm:text-base mb-1 inline-block whitespace-normal" encryptedClassName="text-neutral-500" />
                   <br />
-                  <EncryptedText text="React, Next.js, Node.js, Express.js, TailwindCSS" encryptedClassName="text-neutral-500" revealedClassName="dark:text-white text-black" revealDelayMs={40} className="text-sm" />
+                  <EncryptedText text="React, Next.js, Node.js, Express.js, TailwindCSS" encryptedClassName="text-neutral-500" revealedClassName="dark:text-white text-black" revealDelayMs={40} className="text-xs sm:text-sm" />
                 </li>
                 <li>
-                  <DecryptedText text="Databases" speed={200} animateOn="view" className="font-bold text-base mb-1 inline-block whitespace-normal" encryptedClassName="text-neutral-500" />
+                  <DecryptedText text="Databases" speed={200} animateOn="view" className="font-bold text-sm sm:text-base mb-1 inline-block whitespace-normal" encryptedClassName="text-neutral-500" />
                   <br />
-                  <EncryptedText text="MySQL, MongoDB, SQLite, PostgreSQL" encryptedClassName="text-neutral-500" revealedClassName="dark:text-white text-black" revealDelayMs={40} className="text-sm" />
+                  <EncryptedText text="MySQL, MongoDB, SQLite, PostgreSQL" encryptedClassName="text-neutral-500" revealedClassName="dark:text-white text-black" revealDelayMs={40} className="text-xs sm:text-sm" />
                 </li>
                 <li>
-                  <DecryptedText text="UI/UX Design" speed={200} animateOn="view" className="font-bold text-base mb-1 inline-block whitespace-normal" encryptedClassName="text-neutral-500" />
+                  <DecryptedText text="UI/UX Design" speed={200} animateOn="view" className="font-bold text-sm sm:text-base mb-1 inline-block whitespace-normal" encryptedClassName="text-neutral-500" />
                   <br />
-                  <EncryptedText text="Figma" encryptedClassName="text-neutral-500" revealedClassName="dark:text-white text-black" revealDelayMs={40} className="text-sm" />
+                  <EncryptedText text="Figma" encryptedClassName="text-neutral-500" revealedClassName="dark:text-white text-black" revealDelayMs={40} className="text-xs sm:text-sm" />
                 </li>
               </ul>
-              <div className="relative mb-8">
+              <div className="relative mb-6 sm:mb-8">
                 <LogoLoop
                   logos={logos.slice().reverse()}
                   speed={80}
                   direction="right"
-                  logoHeight={70}
-                  gap={70}
+                  logoHeight={50}
+                  gap={50}
                   pauseOnHover={false}
                   fadeOut={false}
                   scaleOnHover={true}
                   ariaLabel="Technologies and tools reverse"
-                  className="py-6 w-full"
+                  className="py-4 sm:py-6 w-full"
                   width="100%"
                 />
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -412,23 +405,64 @@ export default function AboutDetailPage() {
               {/* Background decoration */}
             </motion.div>
 
-            {/* Journey Section (now using Timeline) */}
+            {/* Certifications Section */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="bg-white dark:bg-[#0f172a] rounded-2xl shadow-xl p-8 border border-gray-200 dark:border-gray-800/50"
+              className="bg-white dark:bg-[#0f172a] rounded-2xl shadow-xl p-4 sm:p-6 lg:p-8 mb-8 sm:mb-10 lg:mb-12 border border-gray-200 dark:border-gray-800/50"
             >
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">My Journey</h2>
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-6 sm:mb-8">Certifications</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                {certifications.map((cert, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.1 * index }}
+                    className="bg-gradient-to-r from-white/15 to-white/8 backdrop-blur-md border border-white/20 rounded-lg p-4 sm:p-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] hover:shadow-[0_8px_32px_0_rgba(31,38,135,0.5)] hover:bg-gradient-to-r hover:from-white/20 hover:to-white/10 transition-all duration-300"
+                  >
+                    <div className="flex flex-col gap-3">
+                      <div className="flex justify-between items-start">
+                        <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white">{cert.title}</h3>
+                        <span className="text-sm text-blue-600 dark:text-blue-400 font-medium">{cert.year}</span>
+                      </div>
+                      <p className="text-sm sm:text-base text-blue-600 dark:text-blue-400 font-medium">{cert.issuer}</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{cert.description}</p>
+                      <a
+                        href={cert.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-md border border-white/20 rounded-lg text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] hover:shadow-[0_8px_32px_0_rgba(31,38,135,0.5)] hover:bg-gradient-to-r hover:from-blue-600/30 hover:to-purple-600/30 transition-all duration-300 text-sm font-medium w-fit"
+                      >
+                        View Certificate
+                        <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </a>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Journey Section (now using Timeline) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              className="bg-white dark:bg-[#0f172a] rounded-2xl shadow-xl p-4 sm:p-6 lg:p-8 border border-gray-200 dark:border-gray-800/50"
+            >
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-6 sm:mb-8">My Journey</h2>
               <Timeline
                 data={journey.map((item) => ({
                   title: item.year,
                   content: (
-                    <div className="bg-gray-50 dark:bg-[#0c1322] rounded-lg p-6 mb-8">
+                    <div className="bg-gray-300 dark:bg-[#0c1322] rounded-lg p-4 sm:p-6 mb-6 sm:mb-8">
                       <div className="flex flex-col gap-2">
-                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{item.title}</h3>
-                        <p className="text-blue-600 dark:text-blue-400 font-medium">{item.company}</p>
-                        <p className="text-gray-600 dark:text-gray-300">{item.description}</p>
+                        <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white">{item.title}</h3>
+                        <p className="text-sm sm:text-base text-blue-600 dark:text-blue-400 font-medium">{item.company}</p>
+                        <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">{item.description}</p>
                       </div>
                     </div>
                   ),

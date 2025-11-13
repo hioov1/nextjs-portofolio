@@ -103,21 +103,35 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
 };
 
 export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
+  const [hovered, setHovered] = useState<number | null>(null);
+
   return (
-    <div className={cn("flex flex-row gap-2", className)}>
-      {items.map((item, index) => (
+    <motion.div onMouseLeave={() => setHovered(null)} className={cn("flex flex-row gap-2", className)}>
+      {items.map((item, idx) => (
         <Link
-          key={index}
+          key={`link-${idx}`}
           href={item.link}
+          onMouseEnter={() => setHovered(idx)}
           onClick={() => {
             if (onItemClick) onItemClick();
           }}
-          className="relative overflow-hidden px-4 py-2 text-sm font-medium text-zinc-700 transition-all duration-300 ease-in-out hover:text-zinc-950 dark:text-neutral-300 hover:dark:text-neutral-100"
+          className="relative px-4 py-2 text-sm font-medium text-zinc-700 dark:text-neutral-300 transition-colors duration-200"
         >
-          {item.name}
+          {hovered === idx && (
+            <motion.div
+              layoutId="hovered"
+              className="absolute inset-0 h-full w-full rounded-full bg-gradient-to-r from-white/15 to-white/8 backdrop-blur-md border border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]"
+              transition={{
+                type: "spring",
+                bounce: 0.2,
+                duration: 0.6,
+              }}
+            />
+          )}
+          <span className="relative z-20">{item.name}</span>
         </Link>
       ))}
-    </div>
+    </motion.div>
   );
 };
 
@@ -160,7 +174,7 @@ export const MobileNavMenu = ({ children, className, isOpen }: MobileNavMenuProp
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className={cn(
-            "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-white px-4 py-8 shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] dark:bg-neutral-950",
+            "absolute inset-x-4 top-16 z-50 flex w-[calc(100%-2rem)] flex-col items-start justify-start gap-4 rounded-lg bg-white px-4 py-8 shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] dark:bg-neutral-950",
             className
           )}
         >
@@ -172,7 +186,7 @@ export const MobileNavMenu = ({ children, className, isOpen }: MobileNavMenuProp
 };
 
 export const MobileNavToggle = ({ isOpen, onClick }: { isOpen: boolean; onClick: () => void }) => {
-  return isOpen ? <IconX className="text-black dark:text-white" onClick={onClick} /> : <IconMenu2 className="text-black dark:text-white" onClick={onClick} />;
+  return isOpen ? <IconX className="text-black dark:text-white w-5 h-5 sm:w-6 sm:h-6" onClick={onClick} /> : <IconMenu2 className="text-black dark:text-white w-5 h-5 sm:w-6 sm:h-6" onClick={onClick} />;
 };
 
 export const NavbarLogo = () => {

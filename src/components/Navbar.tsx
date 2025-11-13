@@ -45,11 +45,7 @@ const Navbar: React.FC = () => {
       {/* Desktop Navbar - Always Visible */}
       <motion.div
         animate={{
-          backdropFilter: isScrolled ? "blur(10px)" : "blur(5px)",
-          backgroundColor: "rgba(239, 255, 253, 0.4)", // cyan-lightest with opacity
-          boxShadow: isScrolled
-            ? "0 0 24px rgba(66, 194, 255, 0.1), 0 1px 1px rgba(66, 194, 255, 0.05), 0 0 0 1px rgba(66, 194, 255, 0.04), 0 0 4px rgba(66, 194, 255, 0.08), 0 16px 68px rgba(66, 194, 255, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset"
-            : "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+          backdropFilter: isScrolled ? "blur(16px)" : "blur(12px)",
           width: isScrolled ? "40%" : "100%",
           y: isScrolled ? 20 : 0,
         }}
@@ -60,11 +56,11 @@ const Navbar: React.FC = () => {
         }}
         style={{
           minWidth: "800px",
+          background: isScrolled ? "linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)" : "linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%)",
+          border: "1px solid rgba(255, 255, 255, 0.2)",
+          boxShadow: isScrolled ? "0 8px 32px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.1) inset" : "0 4px 16px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.15) inset",
         }}
-        className={cn(
-          "relative z-[9999] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full px-4 py-2 lg:flex",
-          isScrolled ? "bg-white/95 dark:bg-neutral-950/95" : "bg-white/90 dark:bg-neutral-950/90"
-        )}
+        className="relative z-[9999] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full px-4 py-2 lg:flex"
       >
         {/* Logo */}
         <div className="flex items-center space-x-2">
@@ -82,13 +78,10 @@ const Navbar: React.FC = () => {
       {/* Mobile Navbar - Always Visible */}
       <motion.div
         animate={{
-          backdropFilter: isScrolled ? "blur(10px)" : "blur(5px)",
-          boxShadow: isScrolled
-            ? "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset"
-            : "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+          backdropFilter: isScrolled ? "blur(16px)" : "blur(12px)",
           width: isScrolled ? "90%" : "100%",
-          paddingRight: isScrolled ? "12px" : "0px",
-          paddingLeft: isScrolled ? "12px" : "0px",
+          paddingRight: isScrolled ? "16px" : "16px",
+          paddingLeft: isScrolled ? "16px" : "16px",
           borderRadius: isScrolled ? "4px" : "2rem",
           y: isScrolled ? 20 : 0,
         }}
@@ -97,16 +90,21 @@ const Navbar: React.FC = () => {
           stiffness: 200,
           damping: 50,
         }}
-        className={cn("relative z-[9999] mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between px-0 py-2 lg:hidden", isScrolled ? "bg-white/95 dark:bg-neutral-950/95" : "bg-white/90 dark:bg-neutral-950/90")}
+        style={{
+          background: isScrolled ? "linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)" : "linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%)",
+          border: "1px solid rgba(255, 255, 255, 0.2)",
+          boxShadow: isScrolled ? "0 8px 32px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.1) inset" : "0 4px 16px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.15) inset",
+        }}
+        className="relative z-[9999] mx-auto flex w-full max-w-[calc(100vw-1rem)] flex-col items-center justify-between px-0 py-2 lg:hidden"
       >
         <div className="flex w-full flex-row items-center justify-between">
           {/* Mobile Logo */}
-          <div className="flex items-center space-x-2">
-            <img src="/assets/images/logo.png" alt="Logo" className="w-10 h-10 object-contain rounded-lg" />
-            <span className="font-medium text-black dark:text-white">HIOODEV</span>
+          <div className="flex items-center space-x-1 sm:space-x-2 flex-shrink-0">
+            <img src="/assets/images/logo.png" alt="Logo" className="w-8 h-8 sm:w-10 sm:h-10 object-contain rounded-lg" />
+            <span className="font-medium text-black dark:text-white text-sm sm:text-base">HIOODEV</span>
           </div>
 
-          <div className="flex items-center space-x-4 cursor-pointer">
+          <div className="flex items-center space-x-2 sm:space-x-4 cursor-pointer flex-shrink-0">
             {/* Theme Toggle for Mobile */}
             <ThemeToggle />
 
@@ -122,11 +120,6 @@ const Navbar: React.FC = () => {
               {item.name}
             </a>
           ))}
-          <div className="mt-4">
-            <NavbarButton variant="primary" className="w-full text-black">
-              Menu +
-            </NavbarButton>
-          </div>
         </MobileNavMenu>
       </motion.div>
     </motion.div>

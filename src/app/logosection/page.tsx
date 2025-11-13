@@ -13,7 +13,7 @@ export default function LogoSectionPage() {
       ariaLabel: "React",
     },
     {
-      node: <SiNextdotjs className="text-gray-300 dark:text-white text-5xl hover:text-gray-300 transition-colors" />,
+      node: <SiNextdotjs className="text-black dark:text-white text-5xl hover:text-gray-300 transition-colors" />,
       title: "Next.js",
       ariaLabel: "Next.js",
     },

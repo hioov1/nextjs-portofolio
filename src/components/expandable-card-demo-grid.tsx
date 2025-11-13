@@ -167,34 +167,25 @@ export const CloseIcon = () => {
 
 const cards = [
   {
-    description: "Full-stack web application",
-    title: "E-Commerce Platform",
-    src: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=300&fit=crop",
-    ctaText: "GitHub",
-    ctaLink: "https://github.com/yourusername/ecommerce-platform",
+    title: "Billiard & F&B Cashier App",
+    description: "Desktop cashier app to handle billiard and f&b sales",
+    src: "/assets/images/projects/cashier.jpg",
+    ctaText: "View Project",
+    ctaLink: "https://github.com/hioov1/Kasir-Billiard-Fnb-dokumentasi",
     content: () => {
       return (
         <div className="space-y-4">
-          <p>A comprehensive e-commerce platform built with modern web technologies. Features include user authentication, product catalog, shopping cart, payment processing with Stripe, and admin dashboard.</p>
+          <p>Desktop POS system specializing in integrated billing for recreational services (billiards) and streamlined Food & Beverage operations.</p>
           <div>
-            <h4 className="font-semibold mb-2">Key Features:</h4>
-            <ul className="list-disc list-inside space-y-1 text-sm">
-              <li>User registration and authentication</li>
-              <li>Product browsing and search functionality</li>
-              <li>Shopping cart and wishlist</li>
-              <li>Secure payment processing</li>
-              <li>Order tracking and history</li>
-              <li>Admin panel for inventory management</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-2">Technologies Used:</h4>
-            <div className="flex flex-wrap gap-2 mt-2">
-              {["React", "Node.js", "MongoDB", "Stripe", "Tailwind CSS"].map((tech, index) => (
-                <span key={index} className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded-full">
-                  {tech}
-                </span>
-              ))}
+            <h4 className="font-semibold mb-2">Tech Stack:</h4>
+            <div className="flex flex-wrap gap-2">
+              <span className="px-3 py-1 bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400 rounded-full text-sm">JavaScript</span>
+              <span className="px-3 py-1 bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400 rounded-full text-sm">ReactJS</span>
+              <span className="px-3 py-1 bg-cyan-100 text-cyan-600 dark:bg-cyan-900/30 dark:text-cyan-400 rounded-full text-sm">TailwindCSS</span>
+              <span className="px-3 py-1 bg-purple-100 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400 rounded-full text-sm">NodeJS</span>
+              <span className="px-3 py-1 bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-400 rounded-full text-sm">ElectronJS</span>
+              <span className="px-3 py-1 bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-400 rounded-full text-sm">SQLite</span>
+              <span className="px-3 py-1 bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-400 rounded-full text-sm">Prisma</span>
             </div>
           </div>
         </div>
@@ -202,34 +193,22 @@ const cards = [
     },
   },
   {
-    description: "Productivity and collaboration tool",
-    title: "Task Management App",
-    src: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=500&h=300&fit=crop",
-    ctaText: "Live Demo",
-    ctaLink: "https://your-task-app.vercel.app",
+    title: "Company Profile Website",
+    description: "Business & Corporate Site",
+    src: "/assets/images/projects/companyprofile.jpg",
+    ctaText: "View Project",
+    ctaLink: "https://github.com/hioov1/company-profile-website",
     content: () => {
       return (
         <div className="space-y-4">
-          <p>A modern task management application designed for teams and individuals. Built with Next.js and TypeScript for type safety and optimal performance.</p>
+          <p>Responsive Company Profile Website using NextJS, currently focuses on the frontend aspects of the project.</p>
           <div>
-            <h4 className="font-semibold mb-2">Key Features:</h4>
-            <ul className="list-disc list-inside space-y-1 text-sm">
-              <li>Create, edit, and organize tasks</li>
-              <li>Team collaboration and task assignment</li>
-              <li>Project boards with drag-and-drop</li>
-              <li>Real-time notifications</li>
-              <li>Progress tracking and analytics</li>
-              <li>Mobile-responsive design</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-2">Technologies Used:</h4>
-            <div className="flex flex-wrap gap-2 mt-2">
-              {["Next.js", "TypeScript", "Prisma", "PostgreSQL", "NextAuth.js"].map((tech, index) => (
-                <span key={index} className="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs rounded-full">
-                  {tech}
-                </span>
-              ))}
+            <h4 className="font-semibold mb-2">Tech Stack:</h4>
+            <div className="flex flex-wrap gap-2">
+              <span className="px-3 py-1 bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400 rounded-full text-sm">TypeScript</span>
+              <span className="px-3 py-1 bg-purple-100 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400 rounded-full text-sm">NextJs</span>
+              <span className="px-3 py-1 bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-400 rounded-full text-sm">TailwindCSS</span>
+              <span className="px-3 py-1 bg-orange-100 text-orange-600 dark:bg-orange-900/30 dark:text-orange-400 rounded-full text-sm">Framer Motion</span>
             </div>
           </div>
         </div>
@@ -237,34 +216,26 @@ const cards = [
     },
   },
   {
-    description: "Real-time weather tracking app",
-    title: "Weather Dashboard",
-    src: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=500&h=300&fit=crop",
-    ctaText: "GitHub",
-    ctaLink: "https://github.com/yourusername/weather-dashboard",
+    title: "Salary App Management System",
+    description: "Multi-User Salary Management System",
+    src: "/assets/images/projects/salaryapp.jpg",
+    ctaText: "View Project",
+    ctaLink: "https://github.com/hioov1/SalaryApp-doc",
     content: () => {
       return (
         <div className="space-y-4">
-          <p>A comprehensive weather dashboard that provides real-time weather data, forecasts, and interactive charts. Features location-based weather detection and detailed meteorological information.</p>
+          <p>
+            The Employee Management Salary App is a full-stack CRUD web application built with the MERN stack (MongoDB, Express.js, React, Node.js) to efficiently manage employee data, salaries, and attendance, featuring distinct Admin and
+            Employee user roles.
+          </p>
           <div>
-            <h4 className="font-semibold mb-2">Key Features:</h4>
-            <ul className="list-disc list-inside space-y-1 text-sm">
-              <li>Current weather conditions</li>
-              <li>7-day weather forecast</li>
-              <li>Interactive weather charts</li>
-              <li>Location-based detection</li>
-              <li>Search for any city worldwide</li>
-              <li>Weather alerts and notifications</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-2">Technologies Used:</h4>
-            <div className="flex flex-wrap gap-2 mt-2">
-              {["React", "Chart.js", "OpenWeather API", "Geolocation", "Local Storage"].map((tech, index) => (
-                <span key={index} className="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-xs rounded-full">
-                  {tech}
-                </span>
-              ))}
+            <h4 className="font-semibold mb-2">Tech Stack:</h4>
+            <div className="flex flex-wrap gap-2">
+              <span className="px-3 py-1 bg-yellow-100 text-yellow-600 dark:bg-yellow-900/30 dark:text-yellow-400 rounded-full text-sm">JavaScript</span>
+              <span className="px-3 py-1 bg-cyan-100 text-cyan-600 dark:bg-cyan-900/30 dark:text-cyan-400 rounded-full text-sm">MongoDB</span>
+              <span className="px-3 py-1 bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-400 rounded-full text-sm">ExpressJS</span>
+              <span className="px-3 py-1 bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400 rounded-full text-sm">ReactJS</span>
+              <span className="px-3 py-1 bg-purple-100 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400 rounded-full text-sm">NodeJS</span>
             </div>
           </div>
         </div>
@@ -272,34 +243,22 @@ const cards = [
     },
   },
   {
-    description: "Personal portfolio with animations",
-    title: "Portfolio Website",
-    src: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=500&h=300&fit=crop",
-    ctaText: "Live Demo",
-    ctaLink: "https://your-portfolio.vercel.app",
+    title: "Responsive Portfolio Website",
+    description: "Responsive Personal Portfolio Website",
+    src: "/assets/images/projects/portofolio.jpg",
+    ctaText: "View Project",
+    ctaLink: "https://github.com/hioov1/hioov1-portfolio",
     content: () => {
       return (
         <div className="space-y-4">
-          <p>A modern, animated portfolio website showcasing projects and skills. Built with Next.js and enhanced with smooth animations using Framer Motion and GSAP for an engaging user experience.</p>
+          <p>Responsive Personal Portfolio Website (Desktop & Mobile Ready) using React, Tailwind, Framer-Motion and some React libraries.</p>
           <div>
-            <h4 className="font-semibold mb-2">Key Features:</h4>
-            <ul className="list-disc list-inside space-y-1 text-sm">
-              <li>Responsive design for all devices</li>
-              <li>Smooth scroll animations</li>
-              <li>Interactive project showcases</li>
-              <li>Contact form with email integration</li>
-              <li>Dark/light theme toggle</li>
-              <li>SEO optimized</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-2">Technologies Used:</h4>
-            <div className="flex flex-wrap gap-2 mt-2">
-              {["Next.js", "Framer Motion", "GSAP", "Tailwind CSS", "EmailJS"].map((tech, index) => (
-                <span key={index} className="px-2 py-1 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 text-xs rounded-full">
-                  {tech}
-                </span>
-              ))}
+            <h4 className="font-semibold mb-2">Tech Stack:</h4>
+            <div className="flex flex-wrap gap-2">
+              <span className="px-3 py-1 bg-black text-white dark:bg-white/10 dark:text-white rounded-full text-sm">ReactJS</span>
+              <span className="px-3 py-1 bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-400 rounded-full text-sm">TailwindCSS</span>
+              <span className="px-3 py-1 bg-purple-100 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400 rounded-full text-sm">Framer Motion</span>
+              <span className="px-3 py-1 bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400 rounded-full text-sm">JavaScript</span>
             </div>
           </div>
         </div>
