@@ -134,10 +134,16 @@ const ClickSpark: React.FC<ClickSparkProps> = ({
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement>): void => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!canvas) {
+      console.log('Canvas not found');
+      return;
+    }
+    
     const rect = canvas.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
+
+    console.log('Click detected at:', { x, y, clientX: e.clientX, clientY: e.clientY });
 
     const now = performance.now();
     const newSparks: Spark[] = Array.from({ length: sparkCount }, (_, i) => ({
@@ -148,11 +154,12 @@ const ClickSpark: React.FC<ClickSparkProps> = ({
     }));
 
     sparksRef.current.push(...newSparks);
+    console.log('Sparks added:', newSparks.length);
   };
 
   return (
-    <div className="relative w-full h-full" onClick={handleClick}>
-      <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none" />
+    <div className="relative w-full min-h-screen" onClick={handleClick}>
+      <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none z-50" />
       {children}
     </div>
   );

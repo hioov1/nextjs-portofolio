@@ -5,6 +5,7 @@ import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { NavItems, MobileNavToggle, MobileNavMenu, NavbarButton } from "./ui/resizable-navbar";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
 
 const Navbar: React.FC = () => {
@@ -116,9 +117,30 @@ const Navbar: React.FC = () => {
         {/* Mobile Menu */}
         <MobileNavMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)}>
           {navItems.map((item, idx) => (
-            <a key={idx} href={item.link} className="block px-4 py-2 text-neutral-600 dark:text-neutral-300 hover:bg-gray-100 dark:hover:bg-neutral-800 rounded-md" onClick={() => setIsMobileMenuOpen(false)}>
-              {item.name}
-            </a>
+            <Link key={idx} href={item.link} onClick={() => setIsMobileMenuOpen(false)}>
+              <motion.div
+                className="relative block w-full px-4 py-3 text-black dark:text-neutral-300 rounded-lg transition-all duration-300 font-medium cursor-pointer"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                style={{
+                  background: "transparent",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%)";
+                  e.currentTarget.style.backdropFilter = "blur(12px)";
+                  e.currentTarget.style.border = "1px solid rgba(255, 255, 255, 0.3)";
+                  e.currentTarget.style.boxShadow = "0 4px 16px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.2) inset";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "transparent";
+                  e.currentTarget.style.backdropFilter = "none";
+                  e.currentTarget.style.border = "1px solid transparent";
+                  e.currentTarget.style.boxShadow = "none";
+                }}
+              >
+                {item.name}
+              </motion.div>
+            </Link>
           ))}
         </MobileNavMenu>
       </motion.div>
