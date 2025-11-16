@@ -59,9 +59,9 @@ export const LinkPreview = ({ children, url, className, width = 200, height = 12
   return (
     <>
       {isMounted ? (
-        <div className="hidden">
+        <span className="hidden">
           <img src={src} width={width} height={height} alt="hidden image" />
-        </div>
+        </span>
       ) : null}
 
       <HoverCardPrimitive.Root

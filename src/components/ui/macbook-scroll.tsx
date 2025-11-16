@@ -53,7 +53,7 @@ export const MacbookScroll = ({ src, showGradient, title, badge }: { src?: strin
           translateY: textTransform,
           opacity: textOpacity,
         }}
-        className="mb-20 text-center text-3xl font-bold text-neutral-800 dark:text-white"
+        className="mb-20 text-center text-6xl font-bold text-neutral-800 dark:text-white"
       >
         {title || (
           <span>
@@ -105,11 +105,7 @@ export const Lid = ({ scaleX, scaleY, rotate, translate, src }: { scaleX: Motion
             boxShadow: "0px 2px 0px 2px #171717 inset",
           }}
           className="absolute inset-0 flex items-center justify-center rounded-lg bg-[#010101]"
-        >
-          <span className="text-white">
-            <AceternityLogo />
-          </span>
-        </div>
+        ></div>
       </div>
       <motion.div
         style={{

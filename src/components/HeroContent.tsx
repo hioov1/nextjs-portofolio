@@ -36,7 +36,7 @@ const HeroContent: React.FC<HeroContentProps> = ({ baseDelay = 1.3 }) => {
             }}
             className="flex justify-center lg:hidden order-1"
           >
-            <CircularProfileImage imageSrc="/assets/images/profile.jpg" altText="Profile Picture" size={256} className="sm:size-80 md:size-96" />
+            <CircularProfileImage imageSrc="/assets/images/hero.jpeg" altText="Profile Picture" size={256} className="sm:size-80 md:size-96" />
           </motion.div>
 
           <div className="text-left space-y-4 sm:space-y-6 lg:space-y-8 order-2 lg:order-1">
@@ -145,7 +145,7 @@ const HeroContent: React.FC<HeroContentProps> = ({ baseDelay = 1.3 }) => {
             }}
             className="hidden lg:flex justify-center lg:justify-end order-3 lg:order-2"
           >
-            <CircularProfileImage imageSrc="/assets/images/profile.jpg" altText="Profile Picture" size={384} className="lg:size-96" />
+            <CircularProfileImage imageSrc="/assets/images/hero.jpeg" altText="Profile Picture" size={384} className="lg:size-96" />
           </motion.div>
         </div>
       </div>

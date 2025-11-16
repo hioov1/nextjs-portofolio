@@ -2,6 +2,7 @@
 
 import React from 'react';
 import ClickSpark from './ClickSpark';
+import FontLoader from './FontLoader';
 
 interface ClientWrapperProps {
   children: React.ReactNode;
@@ -9,17 +10,20 @@ interface ClientWrapperProps {
 
 const ClientWrapper: React.FC<ClientWrapperProps> = ({ children }) => {
   return (
-    <ClickSpark
-      sparkColor="#67E8F9"
-      sparkSize={12}
-      sparkRadius={20}
-      sparkCount={8}
-      duration={500}
-      easing="ease-out"
-      extraScale={1.2}
-    >
-      {children}
-    </ClickSpark>
+    <>
+      <FontLoader />
+      <ClickSpark
+        sparkColor="#67E8F9"
+        sparkSize={12}
+        sparkRadius={20}
+        sparkCount={8}
+        duration={500}
+        easing="ease-out"
+        extraScale={1.2}
+      >
+        {children}
+      </ClickSpark>
+    </>
   );
 };
 

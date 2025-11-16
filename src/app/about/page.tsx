@@ -69,7 +69,7 @@ export default function AboutPage() {
                     transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
                   >
                     <CometCard className="w-full max-w-md sm:max-w-lg">
-                      <div className="relative bg-[#0f172a] rounded-2xl p-4 sm:p-6 md:p-8 overflow-hidden border border-gray-200 dark:border-gray-800/50 shadow-lg">
+                      <div className="relative bg-[#0f172a] rounded-2xl p-4 sm:p-6 md:p-8 overflow-hidden border border-gray-800/50 shadow-lg">
                         {/* Background Glow Effect */}
                         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-1/2bg-blue-500/5 rounded-full blur-3xl" />
                         {/* Profile Content */}
@@ -80,7 +80,7 @@ export default function AboutPage() {
                           </div>
 
                           {/* Name and Title */}
-                          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1 sm:mb-2">Devhioo</h2>
+                          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1 sm:mb-2">HiooDev</h2>
                           <p className="text-blue-400 mb-4 sm:mb-6 md:mb-8 text-sm sm:text-base">Full Stack Developer</p>
 
                           {/* Contact Section - Same as Desktop */}
@@ -186,7 +186,7 @@ export default function AboutPage() {
                           </div>
 
                           {/* Name and Title */}
-                          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1 sm:mb-2">Devhioo</h2>
+                          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1 sm:mb-2">HiooDev</h2>
                           <p className="text-blue-400 mb-4 sm:mb-6 md:mb-8 text-sm sm:text-base">Full Stack Developer</p>
 
                           {/* Contact Section - Desktop */}

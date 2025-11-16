@@ -7,6 +7,10 @@ module.exports = {
     ],
     theme: {
         extend: {
+            fontFamily: {
+                'poppins': ['var(--font-poppins)', 'sans-serif'],
+                'sans': ['var(--font-poppins)', 'sans-serif'],
+            },
             animation: {
                 spotlight: "spotlight 3s ease-out infinite",
                 scroll: "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
