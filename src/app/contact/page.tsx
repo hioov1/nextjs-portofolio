@@ -154,7 +154,7 @@ const ContactAndFooter: React.FC = () => {
     <div className="overflow-x-hidden">
       {/* Contact Section */}
       <Spotlight />
-      <div id="contact" ref={contactRef} className="relative min-h-screen overflow-hidden pb-16 sm:pb-24 lg:pb-32 px-4 sm:px-6 md:px-8 lg:px-0 pt-16 sm:pt-20 lg:pt-24 bg-white dark:bg-black">
+      <div id="contact" ref={contactRef} className="relative min-h-screen overflow-hidden pb-8 sm:pb-12 lg:pb-16 px-4 sm:px-6 md:px-8 lg:px-0 pt-16 sm:pt-20 lg:pt-24 bg-white dark:bg-black">
         {/* Decorative circle on bottom right */}
         <motion.div className="absolute bottom-0 right-0 w-96 h-96 hidden md:block" animate={isContactInView ? "animate" : "initial"} variants={floatingObjectVariant}>
           <div className="relative w-full h-full">
@@ -188,7 +188,7 @@ const ContactAndFooter: React.FC = () => {
         {/* Contact card */}
         <motion.div variants={containerVariants} initial="hidden" animate={isContactInView ? "visible" : "hidden"} className="container mx-auto max-w-5xl">
           <motion.div
-            className="bg-gradient-to-br from-white/15 to-white/8 backdrop-blur-md rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] hover:shadow-[0_8px_32px_0_rgba(31,38,135,0.5)] flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-12 transition-all duration-300 hover:bg-gradient-to-br "
+            className="bg-gray-100 dark:bg-neutral-900 backdrop-blur-md rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 shadow-[0_8px_32px_0_rgba(31,38,135,0.5)] flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-12 transition-all duration-300 "
             initial={{ opacity: 0, y: 40 }}
             animate={isContactInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
             transition={{ duration: 0.8 }}
@@ -301,7 +301,7 @@ const ContactAndFooter: React.FC = () => {
       </div>
 
       {/* Footer Section */}
-      <div ref={footerRef} className="bg-gray-100 dark:bg-blue-600/10 py-8 sm:py-12 lg:py-16 px-4 sm:px-6 md:px-8 lg:px-0">
+      <div ref={footerRef} className="bg-white dark:bg-gradient-to-t dark:from-neutral-950 dark:to-black relative z-10 mt-[-1px] py-8 sm:py-12 lg:py-16 px-4 sm:px-6 md:px-8 lg:px-0 pb-32 lg:pb-16">
         <div className="container mx-auto max-w-6xl">
           {/* Navigation Links */}
           <motion.div className="text-center mb-8 sm:mb-12">
@@ -319,7 +319,7 @@ const ContactAndFooter: React.FC = () => {
           </motion.div>
 
           {/* Footer Divider */}
-          <motion.div className="h-px bg-gray-700 mb-4 sm:mb-6" initial={{ scaleX: 0 }} animate={isFooterInView ? { scaleX: 1 } : { scaleX: 0 }} transition={{ duration: 0.8, delay: 0.4 }} />
+          <motion.div className="h-px bg-gray-300 dark:bg-gray-700 mb-4 sm:mb-6" initial={{ scaleX: 0 }} animate={isFooterInView ? { scaleX: 1 } : { scaleX: 0 }} transition={{ duration: 0.8, delay: 0.4 }} />
 
           {/* Terms & Privacy */}
           <motion.div className="flex justify-center text-xs sm:text-sm text-gray-400 font-sans px-4" initial={{ opacity: 0 }} animate={isFooterInView ? { opacity: 1 } : { opacity: 0 }} transition={{ duration: 0.6, delay: 0.6 }}>

@@ -1,17 +1,32 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { NavItems, MobileNavToggle, MobileNavMenu, NavbarButton } from "./ui/resizable-navbar";
+import { NavItems } from "./ui/resizable-navbar";
+import { FloatingDock } from "./ui/floating-dock";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
+import { IconHome, IconUser, IconBriefcase, IconMail, IconSun, IconMoon } from "@tabler/icons-react";
+import { FiSun, FiMoon } from "react-icons/fi";
 
 const Navbar: React.FC = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [darkMode, setDarkMode] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Check initial theme from localStorage or system preference
+    const isDark = localStorage.getItem("theme") === "dark" || (!localStorage.getItem("theme") && window.matchMedia("(prefers-color-scheme: dark)").matches);
+    setDarkMode(isDark);
+  }, []);
+
+  const toggleTheme = () => {
+    const newDarkMode = !darkMode;
+    setDarkMode(newDarkMode);
+    document.documentElement.classList.toggle("dark", newDarkMode);
+    localStorage.setItem("theme", newDarkMode ? "dark" : "light");
+  };
 
   const { scrollY } = useScroll();
 
@@ -29,6 +44,61 @@ const Navbar: React.FC = () => {
     { name: "About", link: "/#about" },
     { name: "Projects", link: "/#projects" },
     { name: "Contact", link: "/#contact" },
+  ];
+
+  const handleHomeClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleSectionClick = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const dockItems = [
+    {
+      title: "Home",
+      icon: <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
+      href: "#home",
+      onClick: handleHomeClick,
+    },
+    {
+      title: "About",
+      icon: <IconUser className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
+      href: "#about",
+      onClick: () => handleSectionClick("about"),
+    },
+    {
+      title: "Projects",
+      icon: <IconBriefcase className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
+      href: "#projects",
+      onClick: () => handleSectionClick("projects"),
+    },
+    {
+      title: "Contact",
+      icon: <IconMail className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
+      href: "#contact",
+      onClick: () => handleSectionClick("contact"),
+    },
+    {
+      title: "Theme",
+      icon: (
+        <div
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleTheme();
+          }}
+          className="h-full w-full flex items-center justify-center cursor-pointer"
+        >
+          {darkMode ? <FiSun className="h-full w-full text-yellow-400" /> : <FiMoon className="h-full w-full text-blue-400" />}
+        </div>
+      ),
+      href: "#",
+      onClick: () => {},
+    },
   ];
 
   return (
@@ -76,73 +146,18 @@ const Navbar: React.FC = () => {
         <ThemeToggle />
       </motion.div>
 
-      {/* Mobile Navbar - Always Visible */}
+      {/* Mobile FloatingDock - Fixed at bottom */}
       <motion.div
-        animate={{
-          backdropFilter: isScrolled ? "blur(16px)" : "blur(12px)",
-          width: isScrolled ? "90%" : "100%",
-          paddingRight: isScrolled ? "16px" : "16px",
-          paddingLeft: isScrolled ? "16px" : "16px",
-          borderRadius: isScrolled ? "4px" : "2rem",
-          y: isScrolled ? 20 : 0,
-        }}
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{
-          type: "spring",
-          stiffness: 200,
-          damping: 50,
+          duration: 0.8,
+          delay: 3.5,
+          ease: "easeOut",
         }}
-        style={{
-          background: isScrolled ? "linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)" : "linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%)",
-          border: "1px solid rgba(255, 255, 255, 0.2)",
-          boxShadow: isScrolled ? "0 8px 32px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.1) inset" : "0 4px 16px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.15) inset",
-        }}
-        className="relative z-[9999] mx-auto flex w-full max-w-[calc(100vw-1rem)] flex-col items-center justify-between px-0 py-2 lg:hidden"
+        className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-[9999] lg:hidden"
       >
-        <div className="flex w-full flex-row items-center justify-between">
-          {/* Mobile Logo */}
-          <div className="flex items-center space-x-1 sm:space-x-2 flex-shrink-0">
-            <img src="/assets/images/logo.png" alt="Logo" className="w-8 h-8 sm:w-10 sm:h-10 object-contain rounded-lg" />
-            <span className="font-medium text-black dark:text-white text-sm sm:text-base">HIOODEV</span>
-          </div>
-
-          <div className="flex items-center space-x-2 sm:space-x-4 cursor-pointer flex-shrink-0">
-            {/* Theme Toggle for Mobile */}
-            <ThemeToggle />
-
-            {/* Mobile Menu Toggle */}
-            <MobileNavToggle isOpen={isMobileMenuOpen} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        <MobileNavMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)}>
-          {navItems.map((item, idx) => (
-            <Link key={idx} href={item.link} onClick={() => setIsMobileMenuOpen(false)}>
-              <motion.div
-                className="relative block w-full px-4 py-3 text-black dark:text-neutral-300 rounded-lg transition-all duration-300 font-medium cursor-pointer"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                style={{
-                  background: "transparent",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%)";
-                  e.currentTarget.style.backdropFilter = "blur(12px)";
-                  e.currentTarget.style.border = "1px solid rgba(255, 255, 255, 0.3)";
-                  e.currentTarget.style.boxShadow = "0 4px 16px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.2) inset";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "transparent";
-                  e.currentTarget.style.backdropFilter = "none";
-                  e.currentTarget.style.border = "1px solid transparent";
-                  e.currentTarget.style.boxShadow = "none";
-                }}
-              >
-                {item.name}
-              </motion.div>
-            </Link>
-          ))}
-        </MobileNavMenu>
+        <FloatingDock items={dockItems} mobileClassName="flex" desktopClassName="hidden" />
       </motion.div>
     </motion.div>
   );

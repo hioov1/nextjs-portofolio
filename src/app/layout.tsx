@@ -32,7 +32,7 @@ export default function RootLayout({
         <ClientWrapper>
           <div className="min-h-screen flex flex-col">
             <Navbar />
-            <main className="flex-1 overflow-y-auto snap-y snap-mandatory">
+            <main className="flex-1 overflow-y-auto snap-y snap-mandatory pb-20 lg:pb-0">
               <LoadingScreen duration={3000}>{children}</LoadingScreen>
             </main>
           </div>

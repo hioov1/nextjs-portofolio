@@ -53,7 +53,7 @@ export const MacbookScroll = ({ src, showGradient, title, badge }: { src?: strin
           translateY: textTransform,
           opacity: textOpacity,
         }}
-        className="mb-20 text-center text-6xl font-bold text-neutral-800 dark:text-white"
+        className="mb-40 sm:mb-20 text-center text-8xl sm:text-6xl font-bold text-neutral-800 dark:text-white"
       >
         {title || (
           <span>

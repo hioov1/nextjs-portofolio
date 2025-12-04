@@ -20,7 +20,7 @@ export default function Home() {
       <div className="absolute inset-0 bg-white dark:bg-black" />
 
       {/* Main Content */}
-      <div className="relative z-10">
+      <div className="relative z-10 ">
         <HeroContent baseDelay={0.5} />
       </div>
 

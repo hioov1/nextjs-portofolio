@@ -19,12 +19,12 @@ const HeroContent: React.FC<HeroContentProps> = ({ baseDelay = 1.3 }) => {
   };
 
   return (
-    <div className="relative min-h-screen flex items-start px-4 sm:px-6 lg:px-8 pt-20">
+    <div className="relative min-h-screen flex items-start px-4 sm:px- lg:px-8 pt-12 sm:pt-16 pb-24 lg:pt-20 lg:pb-8">
       {/* Animasi background Spotlight */}
       <Spotlight />
       {/* Konten utama Hero */}
-      <div className="relative z-10 w-full px-4 py-8 sm:px-8 sm:py-12 md:px-16 md:py-20 lg:px-32 lg:py-32">
-        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20">
+      <div className="relative z-10 w-full px-4 py-4 sm:px-8 sm:py-8 md:px-16 md:py-16 lg:px-32 lg:py-32">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 lg:gap-20">
           {/* Mobile: Profile Image First */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -36,11 +36,11 @@ const HeroContent: React.FC<HeroContentProps> = ({ baseDelay = 1.3 }) => {
             }}
             className="flex justify-center lg:hidden order-1"
           >
-            <CircularProfileImage imageSrc="/assets/images/hero.jpeg" altText="Profile Picture" size={256} className="sm:size-80 md:size-96" />
+            <CircularProfileImage imageSrc="/assets/images/hero.jpeg" altText="Profile Picture" size={200} className="sm:size-64 md:size-80" />
           </motion.div>
 
-          <div className="text-left space-y-4 sm:space-y-6 lg:space-y-8 order-2 lg:order-1">
-            <motion.div className="space-y-4 sm:space-y-6">
+          <div className="text-left space-y-3 sm:space-y-4 md:space-y-6 lg:space-y-8 order-2 lg:order-1">
+            <motion.div className="space-y-3 sm:space-y-4 md:space-y-6">
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}

@@ -13,7 +13,7 @@ import { Timeline } from "@/components/ui/timeline";
 
 import { EncryptedText } from "@/components/ui/encrypted-text";
 import DecryptedText from "@/components/DecryptedText";
-import { IconBrandGithub, IconBrandLinkedin, IconBrandTwitter, IconMail, IconBrandInstagram, IconBrandFacebook } from "@tabler/icons-react";
+import { IconBrandGithub, IconBrandLinkedin, IconMail, IconBrandInstagram, IconBrandFacebook } from "@tabler/icons-react";
 import { LinkPreview } from "@/components/ui/link-priview";
 import {
   IconBrandReact,
@@ -246,7 +246,7 @@ export default function AboutDetailPage() {
       </div>
 
       <div className="relative z-20 h-full overflow-y-auto no-scrollbar">
-        <div className="min-h-screen px-4 sm:px-6 lg:px-8 pt-20 pb-8 sm:py-12 lg:py-20">
+        <div className="min-h-screen px-4 sm:px-6 lg:px-8 pt-4 sm:pt-20 pb-24 sm:pb-32 lg:pb-20">
           <div className="max-w-6xl mx-auto relative z-10">
             {/* Header */}
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="mb-8 sm:mb-12 lg:mb-16">
@@ -257,8 +257,8 @@ export default function AboutDetailPage() {
                   onClick={() => router.back()}
                   className="flex items-center justify-center w-10 h-10 bg-gradient-to-r from-white/15 to-white/8 backdrop-blur-md border border-white/20 rounded-lg text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] hover:shadow-[0_8px_32px_0_rgba(31,38,135,0.5)] hover:bg-gradient-to-r hover:from-white/20 hover:to-white/10 transition-all duration-300 cursor-pointer mb-4"
                 >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 12H18M6 12L11 7M6 12L11 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
                   </svg>
                 </button>
                 {/* Mobile Title - Centered */}
@@ -272,12 +272,11 @@ export default function AboutDetailPage() {
               <div className="hidden sm:block text-center">
                 <button
                   onClick={() => router.back()}
-                  className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-white/15 to-white/8 backdrop-blur-md border border-white/20 rounded-lg text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 mb-4 sm:mb-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] hover:shadow-[0_8px_32px_0_rgba(31,38,135,0.5)] hover:bg-gradient-to-r hover:from-white/20 hover:to-white/10 transition-all duration-300 cursor-pointer text-sm sm:text-base"
+                  className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-white/15 to-white/8 backdrop-blur-md border border-white/20 rounded-lg text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 mb-4 sm:mb-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] hover:shadow-[0_8px_32px_0_rgba(31,38,135,0.5)] hover:bg-gradient-to-r hover:from-white/20 hover:to-white/10 transition-all duration-300 cursor-pointer"
                 >
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 12H18M6 12L11 7M6 12L11 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
                   </svg>
-                  Back to About
                 </button>
                 <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-3 sm:mb-4">About Me</h1>
                 <p className="text-sm sm:text-base lg:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto px-4">Dive deeper into my background, skills, and professional journey</p>
@@ -305,13 +304,13 @@ export default function AboutDetailPage() {
                     I’m always ready to collaborate and open to new opportunities, especially projects that challenge my skills and create real impact.
                     <br />
                     Here My{" "}
-                    <LinkPreview url="https://drive.google.com/file/d/1Ikw6YTuBMImFv6_ZLfm9XC3hLyEhR6da/view?usp=drive_link" width={300} height={200} isStatic={true} imageSrc="/assets/images/cv_resume.png">
-                      <span 
+                    <LinkPreview url="https://drive.google.com/drive/folders/1zxBRV2_qqC0NQVDc46BmBA2aKPJHipGR?usp=drive_link" width={300} height={200} isStatic={true} imageSrc="/assets/images/cv_resume.png">
+                      <span
                         className="text-black dark:text-white hover:text-blue-700 dark:hover:text-blue-300 font-medium cursor-pointer  decoration-2 underline-offset-2 hover:decoration-blue-600 dark:hover:decoration-blue-300 transition-all duration-200"
                         onClick={(e: React.MouseEvent) => {
                           e.preventDefault();
                           e.stopPropagation();
-                          const newWindow = window.open("https://drive.google.com/file/d/1Ikw6YTuBMImFv6_ZLfm9XC3hLyEhR6da/view?usp=drive_link", "_blank");
+                          const newWindow = window.open("https://drive.google.com/drive/folders/1zxBRV2_qqC0NQVDc46BmBA2aKPJHipGR?usp=drive_link", "_blank");
                           if (newWindow) newWindow.opener = null;
                         }}
                       >

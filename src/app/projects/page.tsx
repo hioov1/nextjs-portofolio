@@ -58,8 +58,8 @@ export default function ProjectsPage() {
             <motion.div variants={containerVariants} initial="hidden" animate={isInView ? "visible" : "hidden"} className="container mx-auto">
               {/* Header Section */}
               <motion.div className="text-center mb-8 sm:mb-12 lg:mb-16">
-                <motion.h2 variants={itemVariants} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black dark:text-white mb-4 sm:mb-6">
-                  My Recent Projects
+                <motion.h2 variants={itemVariants} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-black dark:text-white mb-4 sm:mb-6">
+                  My Projects
                 </motion.h2>
                 <motion.p variants={itemVariants} className="text-sm sm:text-base md:text-lg lg:text-xl text-white-100 max-w-3xl mx-auto leading-relaxed px-2">
                   Here are some of the projects I&apos;ve been working on. Each one represents a unique challenge and learning experience in my development journey.
@@ -69,7 +69,7 @@ export default function ProjectsPage() {
               {/* Projects Section */}
               <motion.div variants={itemVariants} className="mb-12 sm:mb-16 lg:mb-20">
                 <motion.h3 variants={itemVariants} className="text-lg sm:text-xl md:text-2xl font-bold text-black dark:text-white mb-6 sm:mb-8 lg:mb-10 text-center">
-                  Featured Projects
+                  Recent Projects
                 </motion.h3>
                 <motion.div variants={itemVariants} className="relative">
                   <ExpandableCardDemo />
